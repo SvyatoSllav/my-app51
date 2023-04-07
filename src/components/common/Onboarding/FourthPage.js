@@ -1,35 +1,38 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom'
 import Backdrop from './Backdrop'
 import NextButton from './NextButton'
 import CloseButton from "./CloseButton";
 import { useSpotlight } from './useSpotlight'
 import Counter from "./Counter";
-import { useOnboardingInternal } from './useOnboardingInternal'
+// import { useOnboardingInternal } from './useOnboardingInternal'
 import commonClasses from './common.module.css'
 
 const SecondPage = () => {
-  const { mainWrapperRef } = useOnboardingInternal()
-  useSpotlight({ mainWrapperRef, translateY: -160 })
+  const navigate = useNavigate()
+  // const { mainWrapperRef } = useOnboardingInternal()
+  useSpotlight(/*{ mainWrapperRef, translateY: -160 }*/)
 
   return (
     <>
       <CloseButton />
       <Counter />
       <Backdrop>
-        <div className={commonClasses.textWrapper} style={{ position: 'absolute', top: 320 - 160, width: 'calc(100vw - 60px)' }}>
-          <p className={commonClasses.text}>Раздел чатов, где происходит основное общение с участниками</p>
-          <NextButton>Понятно, давай дальше</NextButton>
-        </div>
         <div
-          className={commonClasses.arrowDown}
+          className={commonClasses.arrowUp}
           style={{
             position: 'absolute',
-            top: 460 - 160,
-            left: 'calc(50% + 50px)',
+            top: 310,
+            left: 'calc(50% + -60px)',
             width: 110,
             height: 174
           }}
         />
+        <div className={commonClasses.textWrapper} style={{ position: 'absolute', top: 460, width: 'calc(100vw - 60px)' }}>
+          <div className={commonClasses.header}>О программе MOOVE</div>
+          <p className={commonClasses.text}>(Узнай подробности совместной программы Школы Управления Сколково и МТС по запуску стартапа и управлению цифровым продуктом внутри компании)</p>
+          <NextButton>Понятно, давай дальше</NextButton>
+        </div>
       </Backdrop>
     </>
   )

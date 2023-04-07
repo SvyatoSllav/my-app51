@@ -14,19 +14,20 @@ const SecondPage = () => {
       <CloseButton />
       <Counter />
       <Backdrop>
-        <div className={commonClasses.textWrapper} style={{ position: 'absolute', top: 140, width: 'calc(100vw - 60px)' }}>
-          <p className={commonClasses.text}>Это раздел нетворкинга: заходи и общайся.</p>
+        <div className={commonClasses.textWrapper} style={{ position: 'absolute', top: 340, width: 'calc(100vw - 60px)' }}>
+          <div className={commonClasses.header}>Отправить статью</div>
+          <p className={commonClasses.text}>(Мы принимаем авторские материалы по теме комьюнити с редакционной поддержкой с нашей стороны)</p>
           <NextButton>Понятно, давай дальше</NextButton>
         </div>
         <div
           className={commonClasses.arrowDown}
           style={{
             position: 'absolute',
-            top: 250,
-            left: 'calc(50% + 50px)',
+            bottom: 120,
+            left: 'calc(50% + 40px)',
             width: 110,
             height: 174
-          }}  
+          }}
         />
       </Backdrop>
     </>
